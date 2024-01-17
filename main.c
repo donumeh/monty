@@ -12,6 +12,8 @@ int main(int argc, UNUSED char **argv)
 {
 	int fd;
 	const char *filename;
+	int readfile_flag;
+
 
 	if (argc != 2)
 		error_handler(101, NULL);
@@ -24,6 +26,9 @@ int main(int argc, UNUSED char **argv)
 	if (fd == -1)
 		error_handler(104, filename);
 
+	readfile_flag = readfile(fd);
+
+	close(fd);
 	printf("%s\n", filename);
 
 	exit(EXIT_SUCCESS);
