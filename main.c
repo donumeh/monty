@@ -8,7 +8,7 @@
  * Return: Exit(1) if error encoutered else exit(0)
  */
 
-int main(int argc, UNUSED char **argv)
+int main(int argc, char **argv)
 {
 	char *filename;
 
