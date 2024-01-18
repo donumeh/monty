@@ -67,6 +67,7 @@ typedef struct instruction_s
 
 void error_handler(int, const char *);
 int ifmontyfile(char *filename);
+int isInteger(char *str);
 
 /**
  * prototypes for functions in string_utilities.c
@@ -80,5 +81,10 @@ char *_strdup(char *);
 
 void freedoubleptr(char **, int);
 
+/**
+ * prototypes for functions in file_handline.c
+ */
+int readfile_exec(int);
+char **tokenize_opcode(char *str, size_t *);
 
 #endif /* MONTY_H */

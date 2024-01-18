@@ -11,7 +11,7 @@
 int main(int argc, UNUSED char **argv)
 {
 	int fd;
-	const char *filename;
+	char *filename;
 	int readfile_flag;
 
 
@@ -20,16 +20,17 @@ int main(int argc, UNUSED char **argv)
 	filename = _strdup(argv[1]);
 
 	if (ifmontyfile(argv[1]) == 1)
-		error_handler(100, NULL);
+		error_handler(101, NULL);
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		error_handler(104, filename);
 
-	readfile_flag = readfile(fd);
+	readfile_flag = readfile_exec(fd);
+	printf("%d\n", readfile_flag);
 
 	close(fd);
-	printf("%s\n", filename);
+	free(filename);
 
 	exit(EXIT_SUCCESS);
 }

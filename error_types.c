@@ -6,17 +6,19 @@
  */
 
 int error_code[] = {
-	100,
 	101,
 	102,
 	104,
+	105,
+	106,
 	'\0'
 };
 
 char *error_type[] = {
-	"File not a monty file type Or Enter 1 .m filename only\n",
 	"USAGE: monty file\n",
 	"Error: malloc failed\n",
 	"Error: Can't open file ",
+	"Error: fclose malfunction\n",
+	": usage: push integer\n",
 	"NULL"
 };

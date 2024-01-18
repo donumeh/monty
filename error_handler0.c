@@ -7,7 +7,7 @@
  * Return: void
  */
 
-void error_handler(int error_c, const char *msg)
+void error_handler(int error_c, const char *msg, int line_number)
 {
 	int i;
 
@@ -15,6 +15,13 @@ void error_handler(int error_c, const char *msg)
 	{
 		if (error_code[i] == error_c)
 		{
+			if (error_c == 106)
+			{
+				char c = num + '0';
+
+				write(2, "L", 1);
+				write(2, &c, 1);
+			}
 			write(2, error_type[i], strlen(error_type[i]));
 			if (error_c == 104)
 			{
@@ -52,14 +59,16 @@ int ifmontyfile(char *filename)
 
 	arr = malloc(sizeof(char *) * (i + 1));
 	if (arr == NULL)
+	{
+		free(filename_copy);
 		error_handler(102, NULL);
-
+	}
 	i = 0;
 	token = strtok(filename_copy, delim);
 
 	while (token)
 	{
-		arr[i] = _strdup(token);
+		arr[i] = _strdup(token); /* Might cause an error later (free) */
 		i++;
 		token = strtok(NULL, delim);
 	}
@@ -72,5 +81,25 @@ int ifmontyfile(char *filename)
 		return (1);
 	}
 	freedoubleptr(arr, i);
+	return (0);
+}
+
+/**
+ * isInteger - checks if string can be converted to integer
+ * @str: the string to check if can be parsed to int
+ *
+ * Return: 0 if can be parsed, else 1
+ */
+
+int isInteger(char *str)
+{
+	int i;
+
+	for (i = 0; str[i]; i++)
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (1);
+	}
+
 	return (0);
 }
