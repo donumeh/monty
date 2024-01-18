@@ -10,7 +10,7 @@
 void opcode_exec(char **instruction, int line_number)
 {
 	int i;
-	instruction_t op_function[][3] = {
+	instruction_t op_function[] = {
 		{"push", push},
 		{"pall", pall},
 		{"NULL", "NULL"}
@@ -36,6 +36,7 @@ void opcode_exec(char **instruction, int line_number)
 		if (strcmp(op_function[i]->opcode, op_int) == 0)
 		{
 			op_function[i]->f(&head, line_number);
+			break;
 		}
 	}
 }
