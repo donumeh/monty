@@ -13,14 +13,15 @@ int readfile_exec(char *filename)
 	char *lineptr = NULL;
 	size_t n = 0, token_alloc = 0, line_number = 0;
 	char **instruction = NULL;
+	stack_t *head = NULL;
 
 	stream = fopen(filename, "r");
 
-	while (getline(&lineptr, &n, stream) != -1)
+	while (_getline(&lineptr, &n, stream) != -1)
 	{
 		instruction = tokenize_opcode(lineptr, &token_alloc);
 		line_number++;
-		opcode_exec(instruction, line_number);
+		opcode_exec(instruction, line_number, head);
 
 		freedoubleptr(instruction, token_alloc);
 	}
@@ -54,11 +55,14 @@ char **tokenize_opcode(char *str, size_t *token_alloc)
 	while (token)
 	{
 		i++;
+		printf("%s\n", token);
 		token = strtok(NULL, delim);
 	}
 	free(str_copy);
+
 	*token_alloc = i + 1;
 	instruction = malloc(sizeof(char *) * (i + 1));
+
 	if (instruction == NULL) /* Might need to return NULL to handle mem later */
 		error_handler(102, NULL, 0);
 

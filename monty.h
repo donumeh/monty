@@ -74,6 +74,7 @@ int isInteger(char *str);
  */
 
 char *_strdup(char *);
+ssize_t _getline(char **, size_t *, FILE *);
 
 /**
  * prototypes for functions in memalloc_free.c
@@ -86,7 +87,7 @@ void freedoubleptr(char **, int);
  */
 int readfile_exec(char *);
 char **tokenize_opcode(char *str, size_t *);
-void opcode_exec(char **, int);
+void opcode_exec(char **, int, stack_t *);
 
 /**
  * function in error type
@@ -100,5 +101,6 @@ char *error_type(int);
 
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
+
 
 #endif /* MONTY_H */
