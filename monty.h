@@ -69,10 +69,10 @@ void error_handler(int, const char *, int);
 int ifmontyfile(char *filename);
 int isInteger(char *str);
 
+
 /**
  * prototypes for functions in string_utilities.c
  */
-
 char *_strdup(char *);
 ssize_t _getline(char **, size_t *, FILE *);
 

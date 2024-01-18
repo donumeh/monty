@@ -44,6 +44,7 @@ int readfile_exec(char *filename)
 /**
  * tokenize_opcode - tokenize the instruction into array of strings
  * @str: str of tokenize
+ * @token_alloc: saves the number of args allocated
  *
  * Return: ptr to array
  */
