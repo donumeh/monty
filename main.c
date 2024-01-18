@@ -11,8 +11,6 @@
 int main(int argc, UNUSED char **argv)
 {
 	char *filename;
-	/* int readfile_flag; */
-
 
 	if (argc != 2)
 		error_handler(101, NULL, 0);

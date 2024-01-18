@@ -37,45 +37,22 @@ void error_handler(int error_c, const char *msg, int line_number)
 
 int ifmontyfile(char *filename)
 {
-	char *token;
-	char *filename_copy;
+	char *token = NULL;
+	char *last_token = NULL;
 	char *delim = ".\n";
-	char **arr = NULL;
-	size_t i = 0;
 
-	filename_copy = _strdup(filename);
 	token = strtok(filename, delim);
 
 	while (token)
 	{
-		i++;
+		last_token = token;
 		token = strtok(NULL, delim);
 	}
 
-	arr = malloc(sizeof(char *) * (i + 1));
-	if (arr == NULL)
+	if (strcmp(last_token, "m") != 0)
 	{
-		free(filename_copy);
-		error_handler(102, NULL, 0);
-	}
-	i = 0;
-	token = strtok(filename_copy, delim);
-
-	while (token)
-	{
-		arr[i] = _strdup(token); /* Might cause an error later (free) */
-		i++;
-		token = strtok(NULL, delim);
-	}
-	arr[i] = NULL;
-	free(filename_copy);
-
-	if (arr[i - 1][0] != 'm')
-	{
-		freedoubleptr(arr, i);
 		return (1);
 	}
-	freedoubleptr(arr, i);
 	return (0);
 }
 
