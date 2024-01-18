@@ -1,24 +1,45 @@
 #include "monty.h"
 
+
 /**
- * Global variable that contains all the error types
- * assciated with our source file
+ * error_type - type of error and message to print
+ * @num: error number
+ *
+ * Return: string
  */
 
-int error_code[] = {
-	101,
-	102,
-	104,
-	105,
-	106,
-	'\0'
-};
+char *error_type(int num)
+{
+	int error_code[] = {
+		101,
+		102,
+		104,
+		105,
+		106,
+		'\0'
+	};
+	char *error_type[] = {
+		"USAGE: monty file\n",
+		"Error: malloc failed\n",
+		"Error: Can't open file ",
+		"Error: fclose malfunction\n",
+		": usage: push integer\n",
+		"NULL"
+	};
+	int i;
 
-char *error_type[] = {
-	"USAGE: monty file\n",
-	"Error: malloc failed\n",
-	"Error: Can't open file ",
-	"Error: fclose malfunction\n",
-	": usage: push integer\n",
-	"NULL"
-};
+	for (i = 0; error_code[i] != '\0'; i++)
+	{
+		int n = error_code[i];
+
+		if (n == num)
+			return (error_type[i]);
+	}
+	return (NULL);
+}
+
+/**
+ * Global Variable for number (stack_t)
+ */
+
+int stack_number = 0;

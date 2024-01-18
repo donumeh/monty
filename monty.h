@@ -20,13 +20,13 @@
 #define UNUSED \
        	__attribute__((unused))
 
+#define _POSIX_C_SOURCE 200809L
 
 /**
  * Global variables for handling errors
  */
 
-extern int error_code[];
-extern char *error_type[];
+extern int stack_number;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -65,7 +65,7 @@ typedef struct instruction_s
  * prototypes for functions in error_handler0.c
  */
 
-void error_handler(int, const char *);
+void error_handler(int, const char *, int);
 int ifmontyfile(char *filename);
 int isInteger(char *str);
 
@@ -84,7 +84,21 @@ void freedoubleptr(char **, int);
 /**
  * prototypes for functions in file_handline.c
  */
-int readfile_exec(int);
+int readfile_exec(char *);
 char **tokenize_opcode(char *str, size_t *);
+void opcode_exec(char **, int);
+
+/**
+ * function in error type
+ */
+char *error_type(int);
+
+
+/**
+ * functions for operators
+ */
+
+void push(stack_t **, unsigned int);
+void pall(stack_t **, unsigned int);
 
 #endif /* MONTY_H */

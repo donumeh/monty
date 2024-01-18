@@ -10,26 +10,21 @@
 
 int main(int argc, UNUSED char **argv)
 {
-	int fd;
 	char *filename;
 	int readfile_flag;
 
 
 	if (argc != 2)
-		error_handler(101, NULL);
+		error_handler(101, NULL, 0);
 	filename = _strdup(argv[1]);
 
 	if (ifmontyfile(argv[1]) == 1)
-		error_handler(101, NULL);
+		error_handler(101, NULL, 0);
 
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-		error_handler(104, filename);
-
-	readfile_flag = readfile_exec(fd);
+	readfile_flag = readfile_exec(filename);
 	printf("%d\n", readfile_flag);
 
-	close(fd);
+
 	free(filename);
 
 	exit(EXIT_SUCCESS);

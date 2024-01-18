@@ -3,34 +3,29 @@
 /**
  * error_handler - handles error that occurs in execution
  * @error_c: error code type
+ * @msg: the error message
+ * @line_number: the line number
  *
  * Return: void
  */
 
 void error_handler(int error_c, const char *msg, int line_number)
 {
-	int i;
-
-	for (i = 0; error_code[i] != '\0'; i++)
+	if (error_c == 106)
 	{
-		if (error_code[i] == error_c)
-		{
-			if (error_c == 106)
-			{
-				char c = num + '0';
+		char c = line_number + '0';
 
-				write(2, "L", 1);
-				write(2, &c, 1);
-			}
-			write(2, error_type[i], strlen(error_type[i]));
-			if (error_c == 104)
-			{
-				write(2, msg, strlen(msg));
-				write(2, "\n", strlen("\n"));
-			}
-			exit(EXIT_FAILURE);
-		}
+		write(2, "L", 1);
+		write(2, &c, 1);
 	}
+	write(2, error_type(error_c), strlen(error_type(error_c)));
+	if (error_c == 104)
+	{
+		write(2, msg, strlen(msg));
+		write(2, "\n", strlen("\n"));
+	}
+	/* Check if head is NULL and if not NULL free nodes */
+	exit(EXIT_FAILURE);
 }
 
 /**
@@ -61,7 +56,7 @@ int ifmontyfile(char *filename)
 	if (arr == NULL)
 	{
 		free(filename_copy);
-		error_handler(102, NULL);
+		error_handler(102, NULL, 0);
 	}
 	i = 0;
 	token = strtok(filename_copy, delim);

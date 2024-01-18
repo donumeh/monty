@@ -10,7 +10,7 @@
 void opcode_exec(char **instruction, int line_number)
 {
 	int i;
-	instruction_t **op_function = {
+	instruction_t op_function[][3] = {
 		{"push", push},
 		{"pall", pall},
 		{"NULL", "NULL"}
@@ -30,11 +30,12 @@ void opcode_exec(char **instruction, int line_number)
 				error_handler(106, NULL, line_number);
 		}
 	}
+	stack_number = atoi(num);
 	for (i = 0; op_function[i] != NULL; i++)
 	{
-		if (strcmp(op_function[i][0], op_int) == 0)
+		if (strcmp(op_function[i]->opcode, op_int) == 0)
 		{
-			op_function[i][1](&head, line_number);
+			op_function[i]->f(&head, line_number);
 		}
 	}
 }
