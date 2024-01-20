@@ -11,7 +11,7 @@ int readfile_exec(char *filename)
 {
 	FILE *stream;
 	char *lineptr = NULL;
-	size_t n = 0, token_alloc = 0, line_number = 0;
+	size_t n = 0, token_alloc = 0, line_number = 1;
 	char **instruction = NULL;
 	stack_t *head = NULL;
 
@@ -20,6 +20,9 @@ int readfile_exec(char *filename)
 	while (_getline(&lineptr, &n, stream) != -1)
 	{
 		instruction = tokenize_opcode(lineptr, &token_alloc);
+		if (instruction[0] == NULL)
+			continue;
+		
 		line_number++;
 		opcode_exec(instruction, line_number, &head);
 		freedoubleptr(instruction, token_alloc);

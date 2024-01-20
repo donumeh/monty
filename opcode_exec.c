@@ -31,7 +31,9 @@ void opcode_exec(char **instruction, int line_number, stack_t **head)
 		if (strcmp(op_test[i], op_int) == 0)
 		{
 			if (instruction[1] == NULL || isInteger(num))
+			{
 				error_handler(106, NULL, line_number);
+			}
 		}
 	}
 
