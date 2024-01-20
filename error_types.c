@@ -11,6 +11,7 @@
 char *error_type(int num)
 {
 	int error_code[] = {
+		100,
 		101,
 		102,
 		104,
@@ -19,6 +20,7 @@ char *error_type(int num)
 		'\0'
 	};
 	char *error_type[] = {
+		"Error: Can't open file ",
 		"USAGE: monty file\n",
 		"Error: malloc failed\n",
 		"Error: Can't open file ",

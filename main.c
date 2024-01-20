@@ -15,11 +15,11 @@ int main(int argc, char **argv)
 	char *filename;
 
 	if (argc != 2)
-		error_handler(101, NULL, 0);
+		error_handler(101, NULL, 0, filename);
 	filename = _strdup(argv[1]);
 
 	if (ifmontyfile(argv[1]) == 1)
-		error_handler(101, NULL, 0);
+		error_handler(100, filename, 0);
 
 	readfile_exec(filename);
 
