@@ -47,14 +47,14 @@ void pall(stack_t **stack, UNUSED unsigned int line_number)
 {
 	stack_t *head;
 
-	if (stack == NULL || *stack == NULL)
+	if (stack == NULL)
 		return;
 
 	head = *stack;
 
 	while (head != NULL)
 	{
-		/* printf("%d\n", head->n); */
+		printf("%d\n", head->n);
 		head = head->next;
 	}
 }

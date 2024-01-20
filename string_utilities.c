@@ -72,3 +72,23 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
     return (i);
 }
 
+/**
+ * _strtok - tokenize a string
+ * @str: string to tokenize
+ * 
+ * Return: char **
+
+char **_strtok(char *str)
+{
+	int i;
+	char *ptr1 = NULL;
+	char *ptr2 = NULL;
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (isspace(str[i]) && (i == 0))
+		{
+			
+		}
+	}
+} */

@@ -14,22 +14,14 @@ int readfile_exec(char *filename)
 	size_t n = 0, token_alloc = 0, line_number = 0;
 	char **instruction = NULL;
 	stack_t *head = NULL;
-	int i;
 
 	stream = fopen(filename, "r");
 
 	while (_getline(&lineptr, &n, stream) != -1)
 	{
 		instruction = tokenize_opcode(lineptr, &token_alloc);
-
-		for (i = 0; instruction[i] != NULL; i++)
-		{
-			printf("%s\n", instruction[i]);
-		}
 		line_number++;
-		opcode_exec(instruction, line_number, head);
-		
-
+		opcode_exec(instruction, line_number, &head);
 		freedoubleptr(instruction, token_alloc);
 	}
 

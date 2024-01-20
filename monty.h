@@ -12,6 +12,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <ctype.h>
 
 /**
  * Definitions
@@ -87,7 +88,7 @@ void freedoubleptr(char **, int);
  */
 int readfile_exec(char *);
 char **tokenize_opcode(char *str, size_t *);
-void opcode_exec(char **, int, stack_t *);
+void opcode_exec(char **, int, stack_t **);
 
 /**
  * function in error type

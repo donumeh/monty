@@ -8,7 +8,7 @@
  * Return: function to operator
  */
 
-void opcode_exec(char **instruction, int line_number, stack_t *head)
+void opcode_exec(char **instruction, int line_number, stack_t **head)
 {
 	int i;
 	instruction_t op_function[] = {
@@ -40,7 +40,7 @@ void opcode_exec(char **instruction, int line_number, stack_t *head)
 	{
 		if (strcmp(op_function[i].opcode, op_int) == 0)
 		{
-			op_function[i].f(&head, line_number);
+			op_function[i].f(head, line_number);
 			break;
 		}
 	}
