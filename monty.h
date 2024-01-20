@@ -1,9 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-/**
- * system library header files
- */
 
 #include <stdlib.h>
 #include <string.h>
@@ -14,13 +11,8 @@
 #include <fcntl.h>
 #include <ctype.h>
 
-/**
- * Definitions
- */
-
-#define UNUSED __attribute__((unused))
-
 #define _POSIX_C_SOURCE 200809L
+#define unused __attribute__((unused))
 
 extern int stack_number;
 

@@ -37,9 +37,3 @@ char *error_type(int num)
 	}
 	return (NULL);
 }
-
-/**
- * Global Variable for number (stack_t)
- */
-
-int stack_number = 0;

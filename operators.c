@@ -8,7 +8,7 @@
  * Return: void
  */
 
-void push(stack_t **stack, UNUSED unsigned int line_number)
+void push(stack_t **stack, unused unsigned int line_number)
 {
 	stack_t *new_node = NULL;
 
@@ -43,7 +43,7 @@ void push(stack_t **stack, UNUSED unsigned int line_number)
  * Return: void
  */
 
-void pall(stack_t **stack, UNUSED unsigned int line_number)
+void pall(stack_t **stack, unused unsigned int line_number)
 {
 	stack_t *head;
 

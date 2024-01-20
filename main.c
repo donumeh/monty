@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int stack_number = 0;
+
 /**
  * main - executes a monty byte code
  * @argc: argument counter
