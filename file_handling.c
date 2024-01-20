@@ -1,8 +1,8 @@
 #include "monty.h"
 
 /**
- * readfile - reads a file line by line
- * @fd: file decriptor of file
+ * readfile_exec - reads a file line by line
+ * @filename: file name
  *
  * Return: 1 on error, 0 when otherwise
  */

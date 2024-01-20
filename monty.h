@@ -18,14 +18,9 @@
  * Definitions
  */
 
-#define UNUSED \
-       	__attribute__((unused))
+#define UNUSED __attribute__((unused))
 
 #define _POSIX_C_SOURCE 200809L
-
-/**
- * Global variables for handling errors
- */
 
 extern int stack_number;
 
@@ -62,43 +57,24 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/**
- * prototypes for functions in error_handler0.c
- */
-
 void error_handler(int, const char *, int);
 int ifmontyfile(char *filename);
 int isInteger(char *str);
 
 
-/**
- * prototypes for functions in string_utilities.c
- */
+
 char *_strdup(char *);
 ssize_t _getline(char **, size_t *, FILE *);
 
-/**
- * prototypes for functions in memalloc_free.c
- */
-
 void freedoubleptr(char **, int);
 
-/**
- * prototypes for functions in file_handline.c
- */
 int readfile_exec(char *);
 char **tokenize_opcode(char *str, size_t *);
 void opcode_exec(char **, int, stack_t **);
 
-/**
- * function in error type
- */
+
 char *error_type(int);
 
-
-/**
- * functions for operators
- */
 
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);

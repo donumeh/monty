@@ -3,6 +3,7 @@
 /**
  * opcode_exec - finds the right oprator to do for opcode
  * @instruction: the instruction
+ * @line_number: the line number
  * @head: the head of the linked list
  *
  * Return: function to operator

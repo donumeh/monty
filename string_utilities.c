@@ -43,7 +43,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 		if (*lineptr == NULL)
 			return (-1);
 	}
-	
+
 	while ((c = fgetc(stream)) != EOF)
 	{
 		if (i >= *n - 1)
@@ -65,30 +65,10 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 		if (c == '\n')
 			break;
 	}
-	
+
 	if (i == 0 && c == EOF)
 		return (-1);
 	(*lineptr)[i] = '\0';
     return (i);
 }
 
-/**
- * _strtok - tokenize a string
- * @str: string to tokenize
- * 
- * Return: char **
-
-char **_strtok(char *str)
-{
-	int i;
-	char *ptr1 = NULL;
-	char *ptr2 = NULL;
-
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		if (isspace(str[i]) && (i == 0))
-		{
-			
-		}
-	}
-} */
