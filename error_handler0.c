@@ -24,6 +24,11 @@ void error_handler(int error_c, const char *msg, int line_number)
 		write(2, msg, strlen(msg));
 		write(2, "\n", strlen("\n"));
 	}
+	if (error_c == 100)
+	{
+		write(2, msg, strlen(msg));
+		write(2, "\n", strlen("\n"));
+	}
 	/* Check if head is NULL and if not NULL free nodes */
 	exit(EXIT_FAILURE);
 }
