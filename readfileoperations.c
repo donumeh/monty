@@ -61,8 +61,8 @@ int storeLineInBytes(bytecode_t **_bytes, char *linePtr, int lineNumber)
 		token = strtok(NULL, delim);
 	}
 	printf("%s ---- %d\n", parts[0], i);
-	if (i == 1)
-		parts[i] = NULL;
+	/* if (i == 1)
+		parts[i] = NULL; */
 
 	printf("%s\n", parts[1]);
 	byteAddFlag = byteAdd(_bytes, parts[0], parts[1], lineNumber);
