@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * nofileerror - returns an error if not file passed
+ * noFileError - returns an error if not file passed
  * or multiple files passed
  *
  * Return: void
@@ -46,6 +46,4 @@ void cannotMalloc(void)
 
 	errMsg = "Error: malloc failed\n";
 	write(2, errMsg, strlen(errMsg));
-
-	exit(EXIT_FAILURE);
 }

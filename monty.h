@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+extern char *stackNumber;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: the integer
@@ -45,7 +47,8 @@ typedef struct instruction_s
  * struct bytecode_s - singly linked list to store the bytecode
  * @opcode: the operation code
  * @arg: the arg that follows
- * @line_number: line number of command
+ * @lineNumber: line number of command
+ * @next: pointer to the next node
  *
  * Description: stores the command in the file
  */
@@ -69,6 +72,7 @@ int readFile(bytecode_t **, char *);
 ssize_t _getline(char **, size_t *,  FILE *);
 int storeLineInBytes(bytecode_t **, char *, int);
 int byteAdd(bytecode_t **, char *, char *, int);
+int executeByteCode(bytecode_t **, stack_t **);
 
 #endif /* MONTY_H */
 

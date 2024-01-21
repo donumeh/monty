@@ -29,6 +29,7 @@ int readFile(bytecode_t **_bytes, char *fileName)
 			fclose(stream);
 			free(fileName);
 			cannotMalloc();
+			exit(EXIT_FAILURE);
 		}
 	}
 
