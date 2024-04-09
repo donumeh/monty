@@ -25,7 +25,7 @@ int executeByteCode(bytecode_t **_bytes, stack_t **stack)
 		stackNumber = head->arg;
 		for (i = 0; opcodeInstructions[i].opcode != NULL; i++)
 		{
-			if (strcmp(head->opcode,opcodeInstructions[i].opcode) == 0)
+			if (strcmp(head->opcode, opcodeInstructions[i].opcode) == 0)
 			{
 				opcodeInstructions[i].f(stack,
 						head->lineNumber);

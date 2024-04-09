@@ -1,6 +1,6 @@
 #include "monty.h"
 
-char *stackNumber = 0;
+char *stackNumber = NULL;
 /**
  * main - read and intepret a monty bytecode
  * @argc: the number of arg passed
